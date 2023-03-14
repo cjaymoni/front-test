@@ -105,24 +105,24 @@ class Login extends Component {
       email: this.state.fields["email"],
       password: this.state.fields["password"],
     };
-
-    if (this.handleValidation()) {
-      login(user).then((res) => {
-        if (res == "User does not exist") {
-          alert("User doest exist");
-        } else if (res !== "Wrong credentials") {
-          if (res.usertype === "Admin") {
-            this.props.history.push("/admin/dashboard");
-          } else if (res.usertype === "User") {
-            this.props.history.push("/dashboard");
-          }
-        } else {
-          alert(res);
-        }
-      });
-    } else {
-      alert("Form has errors.");
-    }
+    window.location.assign("/dashboard");
+    // if (this.handleValidation()) {
+    //   login(user).then((res) => {
+    //     if (res == "User does not exist") {
+    //       alert("User doest exist");
+    //     } else if (res !== "Wrong credentials") {
+    //       if (res.usertype === "Admin") {
+    //         this.props.history.push("/admin/dashboard");
+    //       } else if (res.usertype === "User") {
+    //         this.props.history.push("/dashboard");
+    //       }
+    //     } else {
+    //       alert(res);
+    //     }
+    //   });
+    // } else {
+    //   alert("Form has errors.");
+    // }
   }
 
   render() {
