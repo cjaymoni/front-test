@@ -51,7 +51,7 @@ class CustomerIndex extends Component {
                           <th>House Number</th>
                           <th>Contact Number</th>
                           <th>Arrears </th>
-                          <th class="text-right">Action</th>
+                          {/* <th class="text-right">Action</th> */}
                         </thead>
                         <tbody>
                           {this.state.customers?.map((item, key) => {
@@ -63,10 +63,10 @@ class CustomerIndex extends Component {
                                 <td>{item.house_number}</td>
                                 <td>{item.contact}</td>
                                 <td>{item.arrears}</td>
-                                <td class="text-right">
+                                {/* <td class="text-right">
                                   <i class="nc-icon nc-single-copy-04"></i>
                                   <i class="nc-icon nc-simple-remove"></i>
-                                </td>
+                                </td> */}
                               </tr>
                             );
                           })}

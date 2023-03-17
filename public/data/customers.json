@@ -1,0 +1,26 @@
+[
+    {
+        "id": "21",
+        "name": "John Doe",
+        "email": "john@mail.com",
+        "house_number": "ASD234",
+        "contact": "9023482132",
+        "arrears": "234"
+    },
+    {
+        "id": "22",
+        "name": "Jane Doe",
+        "email": "jane@mail.com",
+        "house_number": "ASD235",
+        "contact": "9023482133",
+        "arrears": "235"
+    },
+    {
+        "id": "23",
+        "name": "Johnny Doe",
+        "email": "johnny@mail.com",
+        "house_number": "ASD236",
+        "contact": "9023482134",
+        "arrears": "236"
+    }
+]

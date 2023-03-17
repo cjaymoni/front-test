@@ -33,7 +33,11 @@ class BillIndex extends Component {
         },
       ],
       columns: [
-        { title: "ID", field: "id", headerStyle: { fontSize: 12, width: 100 } },
+        {
+          title: "Bill ID",
+          field: "bill_id",
+          headerStyle: { fontSize: 12, width: 100 },
+        },
         {
           title: "Bill Type",
           field: "bill_type",
@@ -44,14 +48,14 @@ class BillIndex extends Component {
           field: "bill_description",
           headerStyle: { fontSize: 12, width: 100 },
         },
-        {
-          title: "Account Year",
-          field: "account_year",
-          headerStyle: { fontSize: 12, width: 100 },
-        },
+        // {
+        //   title: "Account Year",
+        //   field: "account_year",
+        //   headerStyle: { fontSize: 12, width: 100 },
+        // },
         {
           title: "Customer Name",
-          field: "customer_name",
+          field: "owner_name",
           headerStyle: { fontSize: 12, width: 100 },
         },
         {
@@ -59,11 +63,11 @@ class BillIndex extends Component {
           field: "house_number",
           headerStyle: { fontSize: 12, width: 100 },
         },
-        {
-          title: "Property Type ",
-          field: "property_type",
-          headerStyle: { fontSize: 12, width: 100 },
-        },
+        // {
+        //   title: "Property Type ",
+        //   field: "property_type",
+        //   headerStyle: { fontSize: 12, width: 100 },
+        // },
         {
           title: "Area Name",
           field: "area",
@@ -74,31 +78,31 @@ class BillIndex extends Component {
           field: "zone",
           headerStyle: { fontSize: 12, width: 100 },
         },
-        {
-          title: "Valuation Number",
-          field: "valuation_number",
-          headerStyle: { fontSize: 12, width: 100 },
-        },
-        {
-          title: "Current Rate",
-          field: "",
-          headerStyle: { fontSize: 12, width: 100 },
-        },
-        {
-          title: "Arrears ",
-          field: "arrears",
-          headerStyle: { fontSize: 12, width: 100 },
-        },
+        // {
+        //   title: "Valuation Number",
+        //   field: "valuation_number",
+        //   headerStyle: { fontSize: 12, width: 100 },
+        // },
+        // {
+        //   title: "Current Rate",
+        //   field: "",
+        //   headerStyle: { fontSize: 12, width: 100 },
+        // },
+        // {
+        //   title: "Arrears ",
+        //   field: "arrears",
+        //   headerStyle: { fontSize: 12, width: 100 },
+        // },
         {
           title: "Amount Due ",
-          field: "amount_due",
+          field: "amount",
           headerStyle: { fontSize: 12, width: 100 },
         },
-        {
-          title: "DAte Created ",
-          field: "date_created",
-          headerStyle: { fontSize: 12, width: 100 },
-        },
+        // {
+        //   title: "Date Created ",
+        //   field: "date_created",
+        //   headerStyle: { fontSize: 12, width: 100 },
+        // },
       ],
     };
   }
@@ -134,7 +138,7 @@ class BillIndex extends Component {
                     <MaterialTable
                       title=" All Bills"
                       columns={this.state.columns}
-                      actions={this.state.actions}
+                      // actions={this.state.actions}
                       data={this.state.data}
                       options={{
                         exportButton: true,

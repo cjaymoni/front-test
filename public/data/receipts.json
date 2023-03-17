@@ -1,0 +1,20 @@
+[
+    {
+        "id": "322",
+        "bill_name": "Sewer Bill",
+        "bill_amount": "$100.00",
+        "date_issued": "2018-01-01",
+        "bill_status": "Paid",
+        "bill_type": "Sewer",
+        "customer": "Johnn Doe"
+    },
+    {
+        "id": "344",
+        "bill_name": "Water Bill",
+        "bill_amount": "$100.00",
+        "date_issued": "2018-01-01",
+        "bill_status": "Paid",
+        "bill_type": "Water",
+        "customer": "Kofi"
+    }
+]
