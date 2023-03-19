@@ -8,7 +8,7 @@ import {
   NavbarBrand,
 } from "reactstrap";
 import { login, getuserdata } from "../api";
-import boot from "../../assets/mun.png";
+import boot from "../../assets/mun-logo.jpg";
 import { style } from "typestyle";
 
 // import Navbar_ from '../Navbar'

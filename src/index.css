@@ -50,3 +50,28 @@ code {
   color: #09bb12;
   font-weight: bold;
 }
+
+table.re-table {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100%;
+  font-weight: bold;
+}
+
+table.re-table th {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 0.4rem;
+}
+
+table.re-table tr {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 0.4rem;
+}
+
+table.re-table td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 0.4rem;
+}

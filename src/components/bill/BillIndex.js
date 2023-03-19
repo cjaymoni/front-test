@@ -17,6 +17,11 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import receipt from "../../assets/receipt.png";
 import map from "../../assets/mapp.png";
+import PrintReceipt from "../print-receipt/Printreceipt";
+import { style } from "typestyle";
+import coat from "../../assets/coat.png";
+import PropTypes from "prop-types";
+import mun from "../../assets/mun-logo.jpg";
 
 class BillIndex extends Component {
   constructor(props) {
@@ -26,12 +31,14 @@ class BillIndex extends Component {
       rowData: "",
       showReceipt: false,
       showLocation: false,
+      currntReceipt: {},
       actions: [
         {
           name: "account",
           icon: () => <PrintIcon />,
           tooltip: <h5>Print Receipt</h5>,
-          onClick: (rowData) => {
+          onClick: (event, rowData) => {
+            this.setState({ currntReceipt: rowData });
             this.handleClickShowReceipt(rowData);
           },
           disabled: false,
@@ -131,7 +138,7 @@ class BillIndex extends Component {
       this.setState({ data: response?.data });
     });
   }
-  handleClickShowReceipt = () => {
+  handleClickShowReceipt = (rowData) => {
     this.setState({ showReceipt: true });
   };
   handleCloseLocation = () => {
@@ -192,13 +199,176 @@ class BillIndex extends Component {
           onClose={this.handleCloseReceipt}
           aria-labelledby="form-dialog-title"
           fullWidth
+          maxWidth="md"
         >
           <DialogTitle id="form-dialog-title">Confirmation</DialogTitle>
           <DialogContent>
-            <DialogContentText>Print Receipt</DialogContentText>
-            <div>
-              <img src={receipt} />
-            </div>
+            <>
+              <div
+                className={style({
+                  display: "flex",
+                  justifyContent: "space-between",
+                  padding: "1rem",
+                })}
+              >
+                <div>
+                  <img src={coat} alt="coat" width={120} height={100} />
+                  <br />
+                  <span
+                    className={style({
+                      fontWeight: "bold",
+                      fontSize: 11,
+                    })}
+                  >
+                    REPUBLIC OF GHANA
+                  </span>
+                </div>
+                <div
+                  className={style({
+                    fontWeight: "bold",
+                    fontSize: 15,
+                  })}
+                >
+                  <span>TEMA WEST MUNICIPAL ASSEMBLY </span>
+                  <br />
+                  <span>P.O Box SK 1957, Sakumono - Tema</span>
+                  <br />
+                  <span>03020 - 937573</span>
+                </div>
+                <div>
+                  <img src={mun} alt="mun" width={100} height={100} />
+                </div>
+              </div>
+              <div>
+                <span
+                  className={style({
+                    fontWeight: "bold",
+                    padding: "1rem",
+                  })}
+                >
+                  GH POST GPS GT-341-7438
+                </span>
+              </div>
+              <div
+                className={style({
+                  marginLeft: "1rem",
+                  marginRight: "1rem",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  fontWeight: "bold",
+                })}
+              >
+                <span>Your Ref: ...................................</span>
+                <span>Date: 10th FEBRUARY, 2020</span>
+              </div>
+              <hr
+                className={style({
+                  marginLeft: "1rem !important",
+                  marginRight: "1rem !important",
+                  marginTop: 0,
+                  marginBottom: 0,
+                  border: "2px solid black",
+                })}
+              />
+              <div className={style({ padding: "1rem" })}>
+                <table className="re-table">
+                  <tr>
+                    <th
+                      colspan="4"
+                      style={{ textAlign: "center", fontSize: 18 }}
+                    >
+                      SEWER BILL
+                    </th>
+                  </tr>
+                  <tr>
+                    <th colspan="2">DATE PRINTED: 10/02/2022</th>
+                    <th colspan="2">Account Year: 2022</th>
+                  </tr>
+                  <tr>
+                    <th colspan="2" style={{ textAlign: "center" }}>
+                      PROPERTY DETAILS
+                    </th>
+                    <th colspan="2" style={{ textAlign: "center" }}>
+                      FINANCIAL DETAILS
+                    </th>
+                  </tr>
+                  <tr>
+                    <td>Owner's Name</td>
+                    <td>{this.state.currntReceipt.owner_name}</td>
+                    <td>Current Rate</td>
+                    <td>400</td>
+                  </tr>
+                  <tr>
+                    <td>House Number</td>
+                    <td>{this.state.currntReceipt.house_number}</td>
+                    <td>Arrears</td>
+                    <td>0</td>
+                  </tr>
+                  <tr>
+                    <td>Type</td>
+                    <td>RESIDENTIAL</td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Area</td>
+                    <td>{this.state.currntReceipt.area}</td>
+                    <td>Amount Due</td>
+                    <td>{this.state.currntReceipt.amount}</td>
+                  </tr>
+                  <tr>
+                    <td>Zone</td>
+                    <td>{this.state.currntReceipt.zone}</td>
+                    <td rowSpan="6" colSpan="2">
+                      MUNICIPAL FINANCE OFFICE
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Valuation Number</td>
+                    <td>{this.state.currntReceipt.bill_id}</td>
+                  </tr>
+                  <tr>
+                    <td>Bill Type</td>
+                    <td>SEWER</td>
+                  </tr>
+                  <tr>
+                    <td>Description</td>
+                    <td>SEWER USER FEE</td>
+                  </tr>
+                </table>
+                <div>
+                  <span
+                    className={style({
+                      fontSize: 12,
+                      marginBottom: -20,
+                    })}
+                  >
+                    This bill must be paid in full on or before 31st July, 2020
+                    or within two weeks of distribution date.
+                  </span>
+                  <br />
+                  <span
+                    className={style({
+                      fontWeight: "bold",
+                      fontSize: 12,
+                      marginBottom: -20,
+                    })}
+                  >
+                    PLEASE MAKE PAYMENT AT COMM. 2 TWMA SUB OFFICE AND INSIST ON
+                    YOUR RECEIPT UPON PAYMENT.
+                  </span>
+                  <br />
+                  <span
+                    className={style({
+                      fontWeight: "bold",
+                      fontSize: 12,
+                    })}
+                  >
+                    FOR ENQUIRIES CONTACT: 0246250144, 0249110132
+                  </span>
+                </div>
+              </div>
+            </>
           </DialogContent>
           <DialogActions>
             <Button
